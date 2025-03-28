@@ -1,5 +1,6 @@
 import { ModeToggle } from "./Mode-toggle";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -40,10 +41,10 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <ModeToggle />
           <Button variant="outline" className="px-4 py-2">
-            Sign In
+            <Link to="/login">Sign In</Link>
           </Button>
           <Button variant="default" className="px-4 py-2">
-            Sign Up
+            <Link to="/register">Sign Up</Link>
           </Button>
         </div>
       </div>
