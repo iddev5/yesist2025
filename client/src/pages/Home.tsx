@@ -5,12 +5,14 @@ import Newsletter from "@/components/NewsLetter";
 import Footer from "@/components/Footer";
 import CallToAction from "@/components/CallToAction";
 import CommunityEngagement from "@/components/CommunityEngagement";
+import About from "@/components/About";
 
 function Home() {
   return (
     <div>
       <Navbar />
       <Hero />
+      <About/>
       <Statistics />
         <CallToAction />
         <CommunityEngagement/>

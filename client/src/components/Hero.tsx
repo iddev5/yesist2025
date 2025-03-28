@@ -5,7 +5,7 @@ import climateLogo from "../assets/climate.svg";
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white py-15 dark:from-gray-800 dark:via-gray-900 dark:to-black">
+    <section id='home' className="relative bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white py-15 dark:from-gray-800 dark:via-gray-900 dark:to-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-20 flex flex-col lg:flex-row items-center justify-between space-y-10 lg:space-y-0">
         {/* Text Content */}
         <Card className="w-full lg:w-1/2 bg-opacity-80 backdrop-blur-md shadow-lg dark:bg-gray-800 dark:text-gray-100">
