@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/Mode-toggle";
+import { FaHeart, FaRegHeart, FaShareAlt } from "react-icons/fa";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Profile = () => {
   const [posts, setPosts] = useState([
@@ -11,6 +14,8 @@ const Profile = () => {
       location: "California, USA",
       description: "Join us for a beach cleanup drive this weekend!",
       date: "April 15, 2025",
+      likes: 0,
+      liked: false,
     },
     {
       id: 2,
@@ -18,6 +23,8 @@ const Profile = () => {
       location: "New Delhi, India",
       description: "Help us plant trees and restore greenery in the city.",
       date: "April 20, 2025",
+      likes: 0,
+      liked: false,
     },
     {
       id: 3,
@@ -25,6 +32,8 @@ const Profile = () => {
       location: "Berlin, Germany",
       description: "Learn how to recycle effectively and reduce waste.",
       date: "April 25, 2025",
+      likes: 0,
+      liked: false,
     },
   ]);
 
@@ -73,14 +82,30 @@ const Profile = () => {
           location: newPost.location,
           description: newPost.description,
           date: new Date().toLocaleDateString(),
+          likes: 0,
+          liked: false,
         },
       ]);
       setNewPost({ title: "", location: "", description: "" });
     }
   };
 
+  const handleLike = (id: number) => {
+    setPosts(posts.map(post =>
+      post.id === id
+        ? { ...post, likes: post.liked ? post.likes - 1 : post.likes + 1, liked: !post.liked }
+        : post
+    ));
+  };
+
+  const handleShare = (id: number) => {
+    alert(`Post ${id} shared!`);
+  };
+
   return (
-    <section className="flex flex-col lg:flex-row min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <>
+    <Navbar />
+    <section className="flex flex-col lg:flex-row min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 mt-18">
       {/* Left Sidebar */}
       <div className="lg:w-1/4 bg-white dark:bg-gray-800 shadow-lg p-6">
         <div className="flex items-center space-x-4 mb-6">
@@ -142,9 +167,26 @@ const Profile = () => {
                 {post.location} - {post.date}
               </p>
               <p className="text-sm mt-2">{post.description}</p>
-              <Button variant="outline" className="mt-4">
-                Join Program
-              </Button>
+              <div className="flex items-center gap-4 mt-4">
+                <button
+                  onClick={() => handleLike(post.id)}
+                  className="flex items-center gap-1 text-gray-800 dark:text-gray-100"
+                >
+                  {post.liked ? (
+                    <FaHeart className="text-red-500" />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                  <span>{post.likes}</span>
+                </button>
+                <button
+                  onClick={() => handleShare(post.id)}
+                  className="flex items-center gap-1 text-gray-800 dark:text-gray-100"
+                >
+                  <FaShareAlt />
+                  <span>Share</span>
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -205,7 +247,8 @@ const Profile = () => {
         </div>
       </div>
     </section>
-  );
+    <Footer />
+  </>);
 };
 
 export default Profile;

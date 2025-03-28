@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-200 py-8">
+    <footer className="bg-blue-900 text-gray-200 py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Brand Logo */}

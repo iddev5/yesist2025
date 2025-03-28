@@ -13,32 +13,22 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-6 text-lg">
-          <li>
-            <a href="#home" className="hover:text-gray-600 dark:hover:text-gray-300">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="hover:text-gray-600 dark:hover:text-gray-300">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#services" className="hover:text-gray-600 dark:hover:text-gray-300">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="hover:text-gray-600 dark:hover:text-gray-300">
-              Contact
-            </a>
-          </li>
-        </ul>
-
         {/* Right Side: Mode Toggle and Buttons */}
         <div className="flex items-center space-x-4">
+          {/* Navigation Links */}
+          <ul className="hidden md:flex space-x-6 text-lg">
+            <li>
+              <a href="/" className="hover:text-gray-600 dark:hover:text-gray-300">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#about" className="hover:text-gray-600 dark:hover:text-gray-300">
+                About
+              </a>
+            </li>
+          </ul>
+
           <ModeToggle />
           <Button variant="outline" className="px-4 py-2">
             <Link to="/login">Sign In</Link>
