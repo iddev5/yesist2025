@@ -1,19 +1,14 @@
 import { Button } from './components/ui/button'
 import { ThemeProvider } from './components/theme-provider'
-import { ModeToggle } from './components/Mode-toggle'
 import './App.css'
+import Home from './pages/Home'
 
 function App() {
 
   return (
     <>
       <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-        <div className="bg-black text-white font-extrabold ">
-          <Button variant="link" className='text-red-400'>
-            Click Here
-          </Button>
-          <ModeToggle/>
-        </div>
+        <Home/>
 
       </ThemeProvider>
     </>
